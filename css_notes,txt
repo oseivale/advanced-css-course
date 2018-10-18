@@ -1,0 +1,28 @@
+Three pillars to write good HTML and CSS and build good websites
+
+-Responsive web design
+build one website that works beautifully across all screen sizes and web browsers
+
+fluid layouts, media queries, responsive images, correct units, desktop-first vs. mobile-first
+
+-Maintainable and scalable code
+code that is clean, easy to understand, able to grow, reusable, organized files, class names, well-structured HTML --> we need to care about our css structure and our mark-up in html
+
+-Web performance
+make as few HTTP requests as possible, write as little code as possible, compress our code, use a CSS preprocessor (like SASS), fewer images, compress our images so that they use less bandwidth for our end user
+
+what actually happens to our CSS code behind the scenes when we load up a webpage?
+
+http request, domain name service... etc
+
+what happens in the browser when a user opens the page --> Load HTML, then parse it --> read it line by line
+
+browser build the DOM which describes the document like tree --> this stores all the html
+as it parses the html, it loads the css
+
+when css is parsed, it (1) resolves conflicting css desclarations and then creates a cascade
+and then it (2) processes final css values, such as margins and and dimensions that are declared with % values or other relative values into pixels for different screen sizes
+
+then it takes the parsed CSS and creates the CSS Object model (CSSOM)--> similar to DOM and it creates a render tree which then becomes the visual formatting model for website rendering, which then gets rendered to the browser
+
+CSS Parsing phase
