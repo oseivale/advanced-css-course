@@ -26,3 +26,53 @@ and then it (2) processes final css values, such as margins and and dimensions t
 then it takes the parsed CSS and creates the CSS Object model (CSSOM)--> similar to DOM and it creates a render tree which then becomes the visual formatting model for website rendering, which then gets rendered to the browser
 
 CSS Parsing phase
+
+css rule: consists of a selector and a declaration block
+first step is to resolve conflicts in the css parsing phase, then the next step is process the final css values
+
+the cascade: is the process of combining different stylesheets and resolving conflicts between different css rules and declarations, when more than one rule applies to a certian element 
+
+How does css resolve conflicts and decide which styles will take precence over another
+
+types of style declarations:
+author -written by us
+user - written by the user
+browser - already set by browser
+
+importance > specificity > source order
+
+IMPORTANCE
+
+-user declarations marked with the important key word are most important
+-author declarations marked with important
+-normal author declarations
+-normal user declarations
+-default browser declarations
+
+SPECIFICITY --> we must calculate the selector specificity 
+
+-inline styles
+-IDs
+-Classes, pseudo-classes, attribute
+-Elements, pseudo-elements
+
+in order to calculate specificity, you must tally up the total of each type of style selector, then once done, you must see which declaration has the most in each category starting with the inline styles, then working your way down the list --> i.e. the declaration with the most inline styles would be the winner, otherwise you move on to IDs, then the declaration with the most IDs would be the winning value and so on. Any ties would need to move on to the next type on the list in order to determine the score.
+
+value of the winning declaration is called the cascaded value
+
+if there ends up being a tie all across the board, then it is simply the last declaration that will be used to style to the selected item
+
+CSS declarations marked with !important have the highest priority --> should only be used as last resort, using correct specificities is more maintainable
+
+inline styles take priority over stylesheet styles, but better to use stylesheets
+
+universal selector (*) has no specificty value --> (0,0,0,0)
+
+best to rely on specificty 
+always put your author stylesheet last in the html head section, that way when using 3rd party stylesheets, you may be able to include your own styles as well, to override the 3rd party styles if necessary
+
+HOW ARE VALUES PROCESSED IN THE CSS PARSING PHASE?
+
+all relative units such as: rem, em, %, or vh will be converted to pixels at some point in the css parsing phase
+
+
